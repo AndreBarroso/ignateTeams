@@ -4,7 +4,7 @@ import logoImg from '@assets/logo.png'
 export  function Header() {
   return (
     <Container>
-        <Logo/>
+        <Logo source={logoImg}/>
     </Container>
   );
 }

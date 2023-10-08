@@ -7,7 +7,7 @@ export const Container = styled.View`
     justify-content: center;
 `;
 
-export const Logo = styled.View`
+export const Logo = styled.Image`
     width: 46px;
     height: 55px;
 `;
