@@ -1,6 +1,31 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    //criar a tipagem dos mapeamentos
+    "baseUrl": "./",
+    "paths": {  //aqui vai os mapeamentos para poder aparecer quando começãr digitar e não dar erro
+      "@assets/*": [
+        "./src/assets/*"   //  "/*" é para pegar na tipagem todos os arquvisos dentro da pasta mapeada 
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+      "@screens/*": [
+        "./src/screens/*"
+      ],
+      "@storage/*": [
+        "./src/storage/*"
+      ],
+      "@theme/*": [
+        "./src/theme/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
+    }
   }
 }
