@@ -10,7 +10,6 @@ module.exports = function(api) {
           alias: { //aqui vai o mapeamneto das rotas dos arquivos mapaeamento 
             '@assets': './src/assets', 
             '@components': './src/components',
-            '@routes': './src/routes',
             '@screens': './src/screens',
             '@storage': './src/storage',
             '@theme': './src/theme',

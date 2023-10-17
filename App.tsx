@@ -6,7 +6,7 @@ import theme from '@theme/index'
 import { Loading } from '@components/Loading/indext';
 import { StatusBar } from 'react-native';
 
-import { Groups } from '@screens/Groups';
+import { Routes } from './src/routes';
 
 export default function App() {
 
@@ -19,7 +19,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-     { fontsLoaded  ? <Groups /> : <Loading/>}
+     { fontsLoaded  ? <Routes /> : <Loading/>}
     </ThemeProvider>
   );
 }
