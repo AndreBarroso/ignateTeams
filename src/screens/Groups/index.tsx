@@ -1,4 +1,5 @@
 import {useState} from "react"
+
 import { Header } from '@components/Header';
 import { Container, Title} from './styles';
 import { Highlight } from '@components/Highlight';
@@ -7,8 +8,13 @@ import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
 import {Button} from "@components/Button"
 
-export  function Groups() {
+export  function Groups(props) {
   const [groups, setGroups] = useState<string[]>([])
+
+  function handleNewGroup() {
+    props.navigation.navigate('new')
+  }
+
   return (
     <Container>
       <Header showBackButton/>
@@ -34,6 +40,7 @@ export  function Groups() {
 
       <Button 
         title="Criar nova turma"
+        onPress={() => handleNewGroup()}
       />
     </Container>
   );
