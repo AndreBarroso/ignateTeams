@@ -7,8 +7,8 @@ const {Navigator, Screen } =  createNativeStackNavigator();
 
 export function AppRoutes() {
     return (
-        <Navigator> {/*Contexto de navegação */}
-            <Screen //primeira rota a ser carregada
+        <Navigator screenOptions={{headerShown: false}}> 
+            <Screen 
                 name="groups" 
                 component={Groups}
             />
