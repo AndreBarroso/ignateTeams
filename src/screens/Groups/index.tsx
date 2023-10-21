@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useCallback, useEffect, useState} from "react"
 
 import { Header } from '@components/Header';
 import { Container} from './styles';
@@ -7,7 +7,8 @@ import { GroupCard } from '@components/GroupCard';
 import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
 import {Button} from "@components/Button"
-import {useNavigation} from "@react-navigation/native"
+import {useFocusEffect, useNavigation} from "@react-navigation/native"
+import { groupsGetAll } from "@storage/group/groupsGetAll";
 
 
 export  function Groups() {
@@ -19,6 +20,27 @@ export  function Groups() {
     //já pega o "new" e os demais da tipagem global definidos em @type/navigation.d.ts
     navigation.navigate('new')
   }
+
+  async function fetchGroups() {
+    try {
+
+      const data = await groupsGetAll()
+      setGroups(data)
+
+
+    } catch (error){
+      console.log(error)
+    }
+  }
+
+  
+  //usado para sempre que a tela voltar ao foco, disparar a ação. Parecido com useEfectr
+  useFocusEffect(
+    useCallback(()=> {
+      fetchGroups()
+    } , [])
+
+  )
 
   return (
     <Container>
