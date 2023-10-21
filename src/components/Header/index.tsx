@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { BackButton, BackIcon, Container, Logo } from './styles';
 
 import logoImg from '@assets/logo.png'
@@ -7,11 +8,17 @@ type Props = {
 }
 
 export  function Header({showBackButton}: Props) {
+  const navigation = useNavigation()
+
+  function handleGoBack() {
+    navigation.navigate('groups')
+  }
+
   return (
     <Container>
       {
         showBackButton && 
-        <BackButton  onPress={() => console.log('lakala')} activeOpacity={0.2} >
+        <BackButton  onPress={handleGoBack} activeOpacity={0.2} >
             <BackIcon/>
         </BackButton>
         }

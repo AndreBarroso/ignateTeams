@@ -7,27 +7,16 @@ import { GroupCard } from '@components/GroupCard';
 import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
 import {Button} from "@components/Button"
-import {NativeStackNavigationProp } from "@react-navigation/native-stack" //tipagem de navegação
-
-//Essa definição é a mesma usada no arquivo @types/navigation.d.ts
-type RootParamnList = {
-  groups: undefined
-  new: undefined
-  players: {
-    group: string
-  }
-}
-
-//passar a tipagem (RootParamnList) e em qual tela está('groups')
-type Props = {
-  navigation: NativeStackNavigationProp<RootParamnList, 'groups'>
-}
+import {useNavigation} from "@react-navigation/native"
 
 
-export  function Groups({navigation}: Props) {
+export  function Groups() {
   const [groups, setGroups] = useState<string[]>([])
 
+  const navigation = useNavigation()
+
   function handleNewGroup() {
+    //já pega o "new" e os demais da tipagem global definidos em @type/navigation.d.ts
     navigation.navigate('new')
   }
 
